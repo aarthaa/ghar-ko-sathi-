@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upahar</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+       /* Common styles */
+.auth-button,
+.cart-button {
+    padding: 8px 16px;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.auth-button:hover {
+    background-color: #45a049; /* Darker Green */
+}
+
+.cart-button:hover {
+    background-color: #0073e6; /* Darker Blue */
+}
+
+.nav2-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 10px;
+}
+
+.logo img {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.nav2-left h1 {
+    font-size: 40px;
+    margin-bottom: 5px; /* Add margin at the bottom */
+}
+
+.nav2-left p {
+    font-size: 14px; /* Set smaller font size for the additional text */
+    color: #555; /* Adjust text color */
+}
+
+/* Specific styles for login/register button */
+.auth-button {
+    background-color: #4CAF50; /* Green */
+}
+
+/* Specific styles for view cart button */
+.cart-button {
+    background-color: #008CBA; /* Blue */
+}
+
+/* Styles for the navbar */
+.nav2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px; /* Increase the padding for height */
+    background-color: #8399ee;
+}
+/* Adjusted CSS for navbar height */
+.nav2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px; /* Increased padding for height */
+    background-color: #8399ee;
+}
+
+/* Common styles for the search bar and button */
+.search-form {
+    display: flex;
+}
+
+.search-form input[type="text"] {
+    padding: 10px 200px; /* Adjust the padding as needed */
+    font-size: 16px;
+    color: #000;
+    min-width: 300px; /* Adjust the minimum width as needed */
+    width: calc(100% - 40px); /* Set width to fill available space, considering padding */
+    border-radius: 20px 0 0 20px;
+    border: 1px solid #ccc;
+}
+.search-form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+}
+
+
+.nav2-right button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker Blue */
+}
+
+/* Adjusted styles for the login/register button */
+.auth-button {
+    background-color: #4CAF50; /* Green */
+}
+
+/* Adjusted styles for the view cart button */
+.cart-button {
+    background-color: #008CBA; /* Blue */
+}
+
+.tagline {
+    font-size: 16px;
+    color: #555;
+    margin-top: -10px; /* Adjust margin as needed */
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <nav class="nav2">
+            <!-- <div class="nav2-left">
+                <div class="logo">
+                    <img src="logo.png" alt="Logo">
+                </div> -->
+                <div>
+                    <h1>Upahar<span>Nepal</span></h1>
+                    <p class="tagline">Making gifts-giving a breeze!</p>
+                </div>
+            </div>
+<form action="/search/" method="get" class="search-form">
+        <input type="text" placeholder="Search..." name="search" id="search">
+        <button type="submit">
+            <i class="fa fa-search"></i>
+        </button>
+    </form>
+
+         
+         
+            
+            <div class="nav2-right">
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="auth-button" style="text-decoration: none; color: #fff;">Logout</a>
+                {% else %}
+                <a href="{% url 'auth' %}" class="auth-button" style="text-decoration: none; color: #fff;">Login/Register</a>
+                {% endif %}
+                <a href="{% url 'cart' %}" class="cart-button" style="text-decoration: none;">
+                    <i class="fa fa-shopping-cart"></i> View Cart
+                </a>
+            </div>
+        </nav>
+
+        <nav class="nav3">
+            <ul>
+                <li><a href="{% url 'index' %}"><i class="fa fa-home"></i>Home </a></li>
+                <li><a href="{% url 'product' %}"><i class=""></i> Categories</a></li>
+                <li><a href="{% url 'help' %}"><i class=""></i>Help</a></li>
+                <li><a href="{% url 'about' %}"><i class=""></i>About us </a></li>
+                <li><a href="{% url 'userprofile' %}"><i class=""></i> My profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container " style="margin-left: 30px; margin-right: 30px">
+        {% block content %}
+    {% endblock %}
+ </div>
+    
+    <footer class="footer">
+        <div class="footer-left">
+            <i class="fa fa-facebook" style="color: #fff;"></i>
+            <i class="fa fa-whatsapp" style="color: #fff;"></i>
+            <i class="fa fa-instagram" style="color: #fff;"></i><br><br>
+            <i class="fa fa-phone"></i>+977 9840259838<br><br>
+            <i class="fa fa-envelope"></i>upahar@gmail.com
+        </div>
+        <div class="footer-right">
+            <p>&copy; 2024 Upahar Nepal. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="product-detail-container">
+        <div class="product-image">
+            <img src="{% static 'images/d.jpeg'%}" alt="Product Image">
+        </div>
+        <div class="product-description">
+            <h2>Product Name</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae justo non turpis luctus lacinia eget eu quam. Ut eget ullamcorper velit, id commodo odio.</p>
+            <p>Price: $XX.XX</p>
+            <h3>Additional Details</h3>
+            <ul>
+                <li>Feature 1: Value</li>
+                <li>Feature 2: Value</li>
+                <li>Feature 3: Value</li>
+            </ul>
+        </div>
+        <div class="similar-products">
+           
+            <h3>Similar Products</h3>
+            <div class="scrollable-products">
+                <div class="product-thumbnail">
+                    <img src="/path/to/product-image1.jpg" alt="Product Image 1">
+                </div>
+                <div class="product-thumbnail">
+                    <img src="/path/to/product-image2.jpg" alt="Product Image 2">
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
