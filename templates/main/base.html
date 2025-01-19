@@ -4,7 +4,7 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upahar</title>
+    <title>GrocerEase</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,144 +12,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
-       /* Common styles */
-.auth-button,
-.cart-button {
-    padding: 8px 16px;
-    color: #fff;
-    border-radius: 4px;
-    text-decoration: none;
-}
+        /* Common styles */
+        .auth-button,
+        .cart-button {
+            padding: 8px 16px;
+            color: #fff;
+            border-radius: 4px;
+            text-decoration: none;
+        }
 
-.auth-button:hover {
-    background-color: #45a049; /* Darker Green */
-}
+        .auth-button:hover {
+            background-color: #FF69B4; /* Pink */
+        }
 
-.cart-button:hover {
-    background-color: #0073e6; /* Darker Blue */
-}
+        .cart-button:hover {
+            background-color: #003366; /* Navy Blue */
+        }
 
-.nav2-left {
-    display: flex;
-    align-items: center;
-}
+        .logo img {
+            width: 50px;
+            height: auto;
+            border-radius: 50%;
+            overflow: hidden;
+        }
 
-.logo {
-    margin-right: 10px;
-}
+        /* Navbar styles */
+        .nav2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 10px;
+            background-color: #003366; /* Navy Blue */
+        }
 
-.logo img {
-    width: 50px;
-    height: auto;
-    border-radius: 50%;
-    overflow: hidden;
-}
+        .nav2-left h1 {
+            color: #fff; s
+        }
 
-.nav2-left h1 {
-    font-size: 40px;
-    margin-bottom: 5px; /* Add margin at the bottom */
-}
+        .nav2-left p {
+            color: #fff;
+        }
 
-.nav2-left p {
-    font-size: 14px; /* Set smaller font size for the additional text */
-    color: #555; /* Adjust text color */
-}
+        /* Search form styling */
+        .search-form {
+            display: flex;
+        }
 
-/* Specific styles for login/register button */
-.auth-button {
-    background-color: #4CAF50; /* Green */
-}
+        .search-form input[type="text"] {
+            padding: 10px 200px; /* Adjust the padding as needed */
+            font-size: 16px;
+            color: #000;
+            min-width: 300px; /* Adjust the minimum width as needed */
+            width: calc(100% - 40px); /* Set width to fill available space, considering padding */
+            border-radius: 20px 0 0 20px;
+            border: 1px solid #ccc;
+        }
+        
+        .search-form button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #FF69B4; /* Pink */
+            color: #fff;
+            border: none;
+            border-radius: 0 20px 20px 0;
+            cursor: pointer;
+        }
 
-/* Specific styles for view cart button */
-.cart-button {
-    background-color: #008CBA; /* Blue */
-}
+        .search-form button[type="submit"]:hover {
+            background-color: #FF1493; /* Darker Pink */
+        }
 
-/* Styles for the navbar */
-.nav2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px; /* Increase the padding for height */
-    background-color: #8399ee;
-}
-/* Adjusted CSS for navbar height */
-.nav2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 10px; /* Increased padding for height */
-    background-color: #8399ee;
-}
+        /* Footer styles */
+        .footer {
+            background-color: #FF69B4; /* Pink */
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: none;
+            z-index: 1000;
+        }
 
-/* Common styles for the search bar and button */
-.search-form {
-    display: flex;
-}
+        .footer.show {
+            display: block;
+        }
 
-.search-form input[type="text"] {
-    padding: 10px 200px; /* Adjust the padding as needed */
-    font-size: 16px;
-    color: #000;
-    min-width: 300px; /* Adjust the minimum width as needed */
-    width: calc(100% - 40px); /* Set width to fill available space, considering padding */
-    border-radius: 20px 0 0 20px;
-    border: 1px solid #ccc;
-}
-.search-form button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 0 20px 20px 0;
-    cursor: pointer;
-}
+        /* Content styles */
+        .container {
+            padding: 50px;
+            margin-top: 80px; /* To prevent overlap with navbar */
+            background-color: #fff; /* White background for content */
+        }
 
+        /* Style for illustration image */
+        .illustration img {
+            width: 80vw; /* Decreased width to 80% of viewport */
+            height: 80vh; /* Elongated height to 80% of viewport height */
+            border-radius: 0;
+            object-fit: cover;
+        }
 
-.nav2-right button[type="submit"]:hover {
-    background-color: #0056b3; /* Darker Blue */
-}
+        /* Content section */
+        .content {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin-top: 20px;
+        }
 
-/* Adjusted styles for the login/register button */
-.auth-button {
-    background-color: #4CAF50; /* Green */
-}
+        h1 {
+            color: #e3edf7; /* Navy Blue for the title */
+        }
 
-/* Adjusted styles for the view cart button */
-.cart-button {
-    background-color: #008CBA; /* Blue */
-}
+        p {
+            color: #ebd1d1;
+            line-height: 1.6;
+        }
 
-.tagline {
-    font-size: 16px;
-    color: #555;
-    margin-top: -10px; /* Adjust margin as needed */
-}
-
-</style>
+    </style>
 </head>
 <body>
     <header>
         <nav class="nav2">
-            <!-- <div class="nav2-left">
-                <div class="logo">
-                    <img src="logo.png" alt="Logo">
-                </div> -->
-                <div>
-                    <h1>Upahar<span>Nepal</span></h1>
-                    <p class="tagline">Making gifts-giving a breeze!</p>
-                </div>
+            <div>
+                <h1>GrocerEase</h1>
+                <p class="tagline">Making everyday essentials just a click away!</p>
             </div>
-<form action="/search/" method="get" class="search-form">
-        <input type="text" placeholder="Search..." name="search" id="search">
-        <button type="submit">
-            <i class="fa fa-search"></i>
-        </button>
-    </form>
+            <form action="/search/" method="get" class="search-form">
+                <input type="text" placeholder="Search..." name="search" id="search">
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
 
-         
-         
-            
             <div class="nav2-right">
                 {% if user.is_authenticated %}
                 <a href="{% url 'logout' %}" class="auth-button" style="text-decoration: none; color: #fff;">Logout</a>
@@ -173,11 +172,11 @@
         </nav>
     </header>
 
-    <div class="container " style="margin-left: 30px; margin-right: 30px">
+    <div class="container">
         {% block content %}
-    {% endblock %}
- </div>
-    
+        {% endblock %}
+    </div>
+
     <footer class="footer">
         <div class="footer-left">
             <i class="fa fa-facebook" style="color: #fff;"></i>
@@ -190,5 +189,18 @@
             <p>&copy; 2024 Upahar Nepal. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Scroll detection script -->
+    <script>
+        window.addEventListener('scroll', function() {
+            var footer = document.querySelector('.footer');
+            // If the page is scrolled to the bottom, show the footer
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                footer.classList.add('show');
+            } else {
+                footer.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>

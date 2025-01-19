@@ -4,12 +4,14 @@
 
 {% load static %}
 
+<!-- Link to Google Fonts for custom font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
 <div class="container" id="container">
     <div class="form-container sign-in">
 
         <div class="profile-page">
             <div class="profile-header">
-                
                 <div class="user-details">
                     <h2>Welcome, {{ user.username }}</h2>
                     <p>Contact: {{ user.email }}</p>
@@ -62,7 +64,7 @@
       <img src="{{ value.image }}" width="120" height="100">
 
       <p>Price: ₹{{ value.price }}</p>
-      <button class="add-to-cart-btn" data-product="{{ key }}" data-name="{{ value.name }}" data-price="{{ value.price }}" style="padding: 5px 10px; background-color: #007bff; color: #fff; border: none; cursor: pointer;">Add to Cart</button>
+      <button class="add-to-cart-btn" data-product="{{ key }}" data-name="{{ value.name }}" data-price="{{ value.price }}" style="padding: 5px 10px; background-color: #ff69b4; color: #fff; border: none; cursor: pointer;">Add to Cart</button>
     </div>
     {% endfor %}
   </div>
@@ -75,10 +77,14 @@
     </div>
 </div>
 
-
-
 <style>
     /* Apply styles for profile header */
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #fff;
+        color: #333;
+    }
+
     .profile-header {
         display: flex;
         align-items: center;
@@ -86,24 +92,6 @@
         padding: 20px;
         background-color: #f0f0f0; /* Light gray background */
         border-bottom: 1px solid #ccc; /* Add border for separation */
-    }
-
-    /* Style the user avatar */
-    .user-avatar {
-        width: 50px;
-        height: 50px;
-        overflow: hidden;
-        border-radius: 50%;
-    }
-
-    .avatar-image {
-        width: 100%;
-        height: auto;
-    }
-
-    /* Style the user details */
-    .user-details {
-        margin-left: 20px;
     }
 
     .user-details h2, .user-details p {
@@ -116,12 +104,12 @@
         display: flex;
         justify-content: space-around;
         margin-top: 20px;
-        background-color: #35adc2; /* Light gray background */
+        background-color: #002c57; /* Navy blue background */
         padding: 10px 0;
     }
 
     .navigation-links a {
-        color: #333; /* Dark text color */
+        color: #fff; /* White text color */
         text-decoration: none;
         font-size: 18px;
         padding: 10px;
@@ -130,64 +118,81 @@
     }
 
     .navigation-links a:hover {
-        background-color: #ddd; /* Lighter background color on hover */
+        background-color: #ff69b4; /* Pink background color on hover */
     }
 
-    /* Style the order history and pending deliveries sections */
-    .order-history-section, .pending-deliveries-section, .wishlist-section, .recommendations-section {
-        background-color: #f9f9f9; /* Lighter background color */
+    /* Style for the Pending Deliveries Section */
+    .pending-deliveries-section {
+        background-color: #f9f9f9; 
         padding: 20px;
         margin-top: 20px;
         border-radius: 10px;
     }
 
-    .order-history-section h3, .pending-deliveries-section h3, .wishlist-section h3, .recommendations-section h3 {
-        color: #333; /* Dark text color */
+    .pending-deliveries-section h3 {
+        color: #ff69b4; /* Pink for headings */
     }
 
-    .order-item, .delivery-item {
+    .delivery-item {
         margin-bottom: 20px;
     }
 
-    .order-item p, .delivery-item p {
+    .delivery-item p {
         margin: 0;
     }
 
-    .order-item ul, .delivery-item ul {
+    .delivery-item ul {
         padding: 0;
         margin-top: 5px;
     }
 
-    .order-item ul li, .delivery-item ul li {
+    .delivery-item ul li {
         margin-left: 20px;
     }
 
-    /* Additional styles for the footer */
-    .footer {
-        background-color: #35adc2; /* Light gray background */
-        color: #333; /* Dark text color */
+    /* Wishlist Section Styles */
+    .wishlist-section {
+        background-color: #f9f9f9;
         padding: 20px;
-        text-align: center;
-        position: ;
-        bottom: 0;
-        width: 100%;
-        
-        
-        
-        .product {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
-    float: left; /* Align items to the left */
-    width: 100%; /* Ensures each item takes full width */
-    box-sizing: border-box; /* Include padding and border in the width calculation */
-}
+        margin-top: 20px;
+        border-radius: 10px;
+    }
 
-.product img {
-    display: block;
-    margin: 0 auto; /* Center the image horizontally */
-}
+    .wishlist-section h3 {
+        color: #ff69b4; /* Pink */
+    }
+
+    /* Product box styling */
+    .product {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+        width: 100%; /* Ensure it takes full width */
+        box-sizing: border-box;
+    }
+
+    .product img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .product h5 {
+        color: #002c57;
+        font-size: 18px;
+    }
+
+    .add-to-cart-btn {
+        padding: 5px 10px;
+        background-color: #ff69b4; /* Pink button */
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart-btn:hover {
+        background-color: #e75d9f; /* Darker pink on hover */
     }
 </style>
 
